@@ -7,22 +7,29 @@ export function isDefined<T>(value: T | null | undefined): value is T {
 }
 
 /**
- * check if value is an object (array returns false)
- */
-export function isObject(value: unknown): value is object {
-  return isDefined(value) && typeof value === 'object' && !Array.isArray(value);
-}
-
-/**
- * check if value is an array
- */
-export function isArray(value: unknown): value is unknown[] {
-  return Array.isArray(value);
-}
-
-/**
  * check if value is a string
  */
 export function isString(value: unknown): value is string {
   return typeof value === 'string';
+}
+
+export class LibReportDto {
+  name: string;
+
+  /**
+   * The id of the report.
+   */
+  id: string;
+}
+
+/**
+ * The report that analyze the docs of a repo.
+ */
+export class DocReportDto {
+  name: string;
+
+  /**
+   * The id of the report.
+   */
+  id: string;
 }
