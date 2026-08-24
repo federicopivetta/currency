@@ -12,13 +12,6 @@ export function isDefined<T>(value: T | null | undefined): value is T {
   return (value as T) !== undefined && (value as T) !== null;
 }
 
-/**
- * check if value is a string
- */
-export function isString(value: unknown): value is string {
-  return typeof value === 'string';
-}
-
 export class LibReportDto {
   name: string;
 
@@ -32,6 +25,7 @@ export class LibReportDto {
  * The report that analyze the docs of a repo.
  */
 export class DocReportDto {
+  @IsString()
   name: string;
 
   /**
@@ -53,5 +47,18 @@ class B {
   public printIf(print: boolean): string | void {
     // if print is true, then return, otherwise do not
     if (print) return 'Printed';
+  }
+}
+
+@Injectable()
+class C {
+  // Field private
+  private readonly field: string = 'HAHA';
+}
+
+class D {
+  @Get()
+  getSum(a: number, b: number): void {
+    const sum = a + b;
   }
 }
