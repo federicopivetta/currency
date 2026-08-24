@@ -39,3 +39,19 @@ export class DocReportDto {
    */
   id: string;
 }
+
+class A {
+  private printHello(): string {
+    return 'Hello';
+  }
+}
+
+/**
+ * class B
+ */
+class B {
+  public printIf(print: boolean): string | void {
+    // if print is true, then return, otherwise do not
+    if (print) return 'Printed';
+  }
+}
